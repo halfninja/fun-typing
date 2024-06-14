@@ -1,0 +1,63 @@
+html {
+    background-color: black;
+    font-family: 'Comic Sans MS';
+
+    --button-size: 3rem;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    height: 100vh;
+}
+
+#typing-zone {
+    padding: 1rem;
+    flex: 1;
+    font-size: 6vw;
+    color: yellow;
+    /* text-shadow: 
+        2px 2px crimson, 
+        -2px -2px crimson,
+        2px -2px crimson,
+        -2px 2px crimson; */
+    word-break: break-all;
+    overflow-y: scroll;
+    line-height: 1.05em;
+}
+
+#typing-zone:focus {
+    outline: none;
+    border: none;
+    caret-color: violet;
+}
+
+#emoji-selector {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    width: 22rem;
+    color: white;
+}
+
+#emoji-selector button {
+    width: var(--button-size);
+    height: var(--button-size);
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+}
+
+@media screen and (max-width: 412px) {
+    #typing-zone {
+        padding: 0.5rem;
+    }
+    #emoji-selector {
+        width: calc(2 * var(--button-size));
+    }
+}
