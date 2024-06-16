@@ -66,13 +66,13 @@ typingZone.focus();
 
 function save () {
     log('Saving');
-    window.localStorage.setItem('typing-game-buffer', typingZone.innerText);
+    window.localStorage.setItem('typing-game-buffer', typingZone.innerHTML);
 }
 
 function load() {
     log('Loading');
     const buffer = window.localStorage.getItem('typing-game-buffer');
-    typingZone.innerText = buffer;
+    typingZone.innerHTML = buffer;
     selectEnd();
 }
 
