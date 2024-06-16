@@ -1,8 +1,15 @@
+/*
+    Poor CSS organisation below. IDs are used for styling, which is bad practice.
+    Please let me have my fun, it's the weekend.
+*/
+
 html {
     background-color: black;
-    font-family: 'Comic Sans MS';
+    font-family: 'Comic Sans MS'; /* You thought you would have a choice in the matter */
+    color: hotpink;
 
     --button-size: 3rem;
+    --scrollbar-width: 20px;
 }
 
 html, body {
@@ -18,13 +25,7 @@ html, body {
 #typing-zone {
     padding: 1rem;
     flex: 1;
-    font-size: 6vw;
-    color: yellow;
-    /* text-shadow: 
-        2px 2px crimson, 
-        -2px -2px crimson,
-        2px -2px crimson,
-        -2px 2px crimson; */
+    font-size: 5vw;
     word-break: break-all;
     overflow-y: scroll;
     line-height: 1.05em;
@@ -41,19 +42,25 @@ html, body {
     overflow-x: hidden;
     display: flex;
     flex-wrap: wrap;
-    width: 22rem;
+    width: calc(7 * var(--button-size) + var(--scrollbar-width));
     color: white;
 }
 
 #emoji-selector button {
     width: var(--button-size);
     height: var(--button-size);
-    font-size: 2rem;
+    font-size: calc(0.66 * var(--button-size));
     background: transparent;
     border: none;
+    padding: 0;
+    margin: 0;
 }
 
-@media screen and (max-width: 412px) {
+/*
+    On mobile, the emoji selector becomes a narrower bar.
+    (Maybe it should be at the top or bottom instead?)
+*/
+@media screen and (max-width: 450px) {
     #typing-zone {
         padding: 0.5rem;
     }

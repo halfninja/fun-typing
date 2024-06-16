@@ -18,7 +18,7 @@ const emoji = [
 '👩🏾‍🤝‍👩🏻','👩🏿‍🤝‍👩🏿','👩🏻‍🤝‍🧑🏼','👩🏾‍🤝‍🧑🏽','👨🏾‍🤝‍👨🏻','👨🏿‍🤝‍👨🏾',
 '👩🏾','👨🏾','🧑🏾','👧🏾','👦🏾','🧒🏾','👶🏾','👵🏾','👴🏾','🧓🏾','👱🏾‍♀️','👱🏾‍♂️','👸🏾','🤴🏾','🤶🏾','🎅🏾','👮🏾‍♀️','👮🏾‍♂️','🕵🏾‍♀️','🕵🏾‍♂️','💂🏾‍♀️','💂🏾‍♂️','💂🏾‍♂️','👷🏾‍♀️','👷🏾‍♂️','👩🏾‍⚕️','👨🏾‍⚕️','👩🏾‍🎓','👩🏾‍🏫','👩🏾‍⚖️','👩🏾‍🌾','👩🏾‍🍳','👩🏾‍🔧','👩🏾‍🏭','👩🏾‍🔬','👩🏾‍💻','👩🏾‍🎤','👩🏾‍🎨','👩🏾‍✈️','👩🏾‍🚀','👩🏾‍🚒','🧕🏾','👰🏾','🤵🏾','🤱🏾','🦸🏾‍♀️','🦹🏾‍♀️','🧙🏾‍♀️','🧜🏾‍♀️','👩🏾‍🦽','💃🏾',
 ];
-
+ 
 const typingZone = document.getElementById('typing-zone');
 
 /**
@@ -54,12 +54,15 @@ function populateEmojiPicker() {
 populateEmojiPicker();
 typingZone.focus();
 
-document.addEventListener('click', function() {
-    document.body.requestFullscreen({ navigationUI: 'hide' }).then(
-        () => log('Fullscreened'),
-        (err) => log('Not fullscreen', err),
-    );
-});
+// Fullscreen mode seems to mess with how text selections work in Chrome -
+// emoji get inserted at the start of the document instead of where the cursor
+// had been.
+// document.addEventListener('click', function() {
+//     document.body.requestFullscreen({ navigationUI: 'hide' }).then(
+//         () => log('Fullscreened'),
+//         (err) => log('Not fullscreen', err),
+//     );
+// });
 
 function save () {
     log('Saving');
